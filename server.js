@@ -14,7 +14,12 @@ const reviewsRoutes = require('./routes/reviews');
 const appointmentsRoutes = require('./routes/appointments');
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: ['https://organic-dental.vercel.app'],
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+    credentials: true
+  }));
+  
 app.use('/uploads', express.static('uploads'));
 
 // Connect DB
